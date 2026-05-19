@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Products</h1>
+  <form method="GET" action="{{ route('products.index') }}">
+    <input type="text" name="search" placeholder="Search products..." value="{{ request('search') }}">
+    <button type="submit">Search</button>
+  </form>
+
+  <ul>
+    @foreach ($products as $product)
+      <li>{{ $product->product_name }} - {{ $product->category->category_name }}</li>
+    @endforeach
+  </ul>
+</body>
+</html>
